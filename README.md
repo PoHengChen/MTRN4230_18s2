@@ -2,13 +2,56 @@
 mtrn4230 2018-S2 Coursepack
 
 # Assignemnt 1 - Image Processing & Computer Vision
+
+![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/IMG_038.jpg)
 ## 1. Image pre-process (obtain mask)
   ### 1.1 Adjust YCbCr
+  ```
+  gray = rgb2gray(im);
+  mask_block = (gray < 0.55);
+  ```
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/31.jpg)
+  
+  * to solve the shape block's piece fragments, use the shape block pixel to overlap 
+  * use YCbCr characteristic to find shape block pixel, check function [ycbcr_adjustment]
+  ```
+  [mask123] = ycbcr_adjustment(im) ;
+  ```
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/32.jpg)
+  
+  * fetch up shape block piece
+  ```
+  mask_block = (gray < 0.55) | (mask123); 
+  ```
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/33.jpg)
+  
+  * Clean background line
+  ```
+  mask_block = imerode(mask_block, strel('disk',1));
+  ```
+  
 
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/34.jpg)
+  * retrieve letter mask
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/35.jpg)
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/36.jpg)
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/37.jpg)
+  
+  * fetch up the letter mask with original mask
+  ```
+  mask_block = mask_block | mask_letter; 
+  ```
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/38.jpg)
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/39.jpg)
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/40.jpg)
+  * obtain block mask
+  
+  ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/bw.jpg)
 ## 2. Split connected blocks (obtain [x,y,theta])
 
   ### 2.1 Boundary
   * Store the boundary coordinate
+  * overlap the boundary pixels and connect them with red line
   
   ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/123.jpg)
   ### 2.2 DouglasPeucker
