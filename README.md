@@ -6,6 +6,7 @@ mtrn4230 2018-S2 Coursepack
 Process: 
   -preprocess
     -segmentation
+    -localization
       -classification
   
 
