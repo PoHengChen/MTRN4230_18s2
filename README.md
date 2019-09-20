@@ -4,10 +4,10 @@ mtrn4230 2018-S2 Coursepack
 # Assignemnt 1 - Image Processing & Computer Vision
 
 Process: 
-  *-preprocess
-    *-segmentation
-    *-localization
-      *-classification
+  * -preprocess
+    * -segmentation
+    * -localization
+      * -classification
   
 
 ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/IMG_038.jpg)
