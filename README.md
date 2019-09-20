@@ -3,6 +3,12 @@ mtrn4230 2018-S2 Coursepack
 
 # Assignemnt 1 - Image Processing & Computer Vision
 
+Process: 
+  -preprocess
+    -segmentation
+      -classification
+  
+
 ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/IMG_038.jpg)
 ## 1. Image pre-process (obtain mask)
   ### 1.1 Adjust YCbCr
