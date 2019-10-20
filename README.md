@@ -7,7 +7,7 @@ Process:
 * image preprocess
 * image segmentation
 * object localization
-* object classification
+* shape/color classification
   
 
 ![image](https://github.com/PoHengChen/Robotics-UNSW-MTRN4230/blob/master/IMG_038.jpg)
